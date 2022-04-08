@@ -9,7 +9,7 @@ if ($_GET['function'] == 'caribarang') {
 				                        FROM produk
                                         INNER JOIN stok_awal ON stok_awal.id_stok = produk.id_stok
                                         INNER JOIN kategori_produk ON produk.id_kategori = kategori_produk.id_kategori
-				                        WHERE qty_stok>0 AND nama_produk LIKE '$cari%' OR nama_kategori LIKE '$cari%'");
+				                        WHERE qty_stok>0 AND nama_produk LIKE '$cari%' OR qty_stok>0 AND nama_kategori LIKE '$cari%'");
 
         ?>
         <table class="table table-sm table-stripped" width="100%">
