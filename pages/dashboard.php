@@ -5,7 +5,7 @@
 <div class="row">
     <div class="col">
         <div class="text-center">
-            <img src="assets/img/logo.jpg" width="200px" class="img-thumbnail rounded mx-auto d-block" alt="...">
+            <img src="assets/img/logo.jpg" width="400px" class="img-thumbnail rounded mx-auto d-block" alt="...">
         </div>
     </div>
 </div>
