@@ -4,9 +4,6 @@ $user = @mysqli_fetch_assoc(@mysqli_query($conn, "SELECT * FROM karyawan"));
 
 if (isset($_POST['submit'])) {
     $nama = $_POST['nama'];
-    $alamat = $_POST['alamat'];
-    $phone = $_POST['phone'];
-    $pekerjaan = $_POST['pekerjaan'];
     $username = $_POST['username'];
     $newPassword = $_POST['new_password'];
     $updatePassword = '';
@@ -14,7 +11,7 @@ if (isset($_POST['submit'])) {
         $updatePassword = ",password='$newPassword'";
 
 
-    $sql = @mysqli_query($conn, "UPDATE karyawan SET nama_pegawai='$nama',alamat_pegawai='$alamat',telp_pegawai='$phone',pekerjaan='$pekerjaan',username='$username'$updatePassword");
+    $sql = @mysqli_query($conn, "UPDATE karyawan SET nama='$nama',username='$username'$updatePassword");
 
     if ($sql) {
         $_SESSION['login'] = $username;
@@ -39,25 +36,7 @@ if (isset($_POST['submit'])) {
                 <div class="mb-3 row">
                     <label for="nama" class="col-sm-2 col-form-label">Nama</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="nama" name="nama" required value="<?=$user['nama_pegawai'] ?>">
-                    </div>
-                </div>
-                <div class="mb-3 row">
-                    <label for="alamat" class="col-sm-2 col-form-label">Alamat</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="alamat" name="alamat" required value="<?=$user['alamat_pegawai'] ?>">
-                    </div>
-                </div>
-                <div class="mb-3 row">
-                    <label for="phone" class="col-sm-2 col-form-label">Telepon</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="phone" name="phone" required value="<?=$user['telp_pegawai'] ?>">
-                    </div>
-                </div>
-                <div class="mb-3 row">
-                    <label for="pekerjaan" class="col-sm-2 col-form-label">Pekerjaan</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="pekerjaan" name="pekerjaan" required value="<?=$user['pekerjaan'] ?>">
+                        <input type="text" class="form-control" id="nama" name="nama" required value="<?=$user['nama'] ?>">
                     </div>
                 </div>
                 <div class="mb-3 row">

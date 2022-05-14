@@ -1,6 +1,5 @@
 <?php
 
-
 session_start();
 $array = $_SESSION['dataExport'];
 
@@ -12,5 +11,6 @@ $out = fopen("php://output", 'w');
 foreach ($array as $data) {
     fputcsv($out, $data, "\t");
 }
+
 unset($_SESSION['dataExport']);
 fclose($out);
