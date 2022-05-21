@@ -1,5 +1,6 @@
 <?php
 require_once('config.php');
+require_once('protection.php');
 
 if (!isset($_SESSION['login'])) {
     header('Location: login.php');
@@ -41,6 +42,9 @@ if (!isset($_SESSION['login'])) {
                             </div>
                             Dashboard
                         </a>
+
+                        <?php if ($_SESSION['role'] == 'admin'): ?>
+
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#masterDataNav" aria-expanded="false" aria-controls="masterDataNav">
                             <div class="sb-nav-link-icon">
                                 <i class="fa-solid fa-database"></i>
@@ -54,8 +58,7 @@ if (!isset($_SESSION['login'])) {
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link" href="<?=baseUrl('?page=kategori-barang') ?>">Kategori Barang</a>
                                 <a class="nav-link" href="<?=baseUrl('?page=list-barang') ?>">List Barang</a>
-                                <a class="nav-link" href="<?=baseUrl('?page=stok-barang') ?>">Stok Barang</a>
-                                <a class="nav-link" href="<?=baseUrl('?page=barang-terjual') ?>">Barang Terjual</a>
+                                <a class="nav-link" href="<?=baseUrl('?page=satuan-barang') ?>">Satuan Barang</a>
                             </nav>
                         </div>
 
@@ -65,6 +68,7 @@ if (!isset($_SESSION['login'])) {
                             </div>
                             Transaksi
                         </a>
+                        <?php endif; ?>
 
                         <a class="nav-link" href="<?=baseUrl('?page=laporan-penjualan') ?>">
                             <div class="sb-nav-link-icon">

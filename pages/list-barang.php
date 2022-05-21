@@ -1,5 +1,8 @@
 <?php
 
+isAdmin();
+
+
 $prefixPage = 'list-barang';
 $produk = @mysqli_query($conn, "SELECT produk.*,stok_awal.qty_stok,kategori_produk.nama_kategori FROM produk
                                 INNER JOIN stok_awal ON stok_awal.id_stok = produk.id_stok

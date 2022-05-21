@@ -1,10 +1,15 @@
 <?php
 
+isAdmin();
+
 // get id produk dari parameter edit
 $idProduk = $_GET['edit'];
 
 // get data kategori
 $kategori = @mysqli_query($conn, "SELECT * FROM kategori_produk");
+
+// get data satuan barang
+$satuanBarang = @mysqli_query($conn, "SELECT * FROM satuan_barang");
 
 // get data produk
 $produk = @mysqli_fetch_assoc(@mysqli_query($conn, "SELECT produk.*,stok_awal.qty_stok,kategori_produk.nama_kategori FROM produk INNER JOIN stok_awal ON stok_awal.id_stok = produk.id_stok INNER JOIN kategori_produk ON kategori_produk.id_kategori = produk.id_kategori WHERE id_produk=$idProduk"));
@@ -83,8 +88,9 @@ if (isset($_POST['submit'])) {
                     <div class="col-sm-10">
                         <select name="satuan" class="form-select" id="satuan" required>
                             <option value="">PILIH SATUAN PRODUK</option>
-                            <option value="pcs" <?=$produk['satuan'] == 'pcs' ? 'selected' : '' ?>>PCS</option>
-                            <option value="grosir" <?=$produk['satuan'] == 'grosir' ? 'selected' : '' ?>>GROSIR</option>
+                            <?php foreach ($satuanBarang as $val): ?>
+                            <option value="<?=$val['satuan'] ?>" <?=$produk['satuan'] == $val['satuan'] ? 'selected' : '' ?>><?=strtoupper($val['satuan']) ?></option>
+                            <?php endforeach; ?>
                         </select>
                     </div>
                 </div>

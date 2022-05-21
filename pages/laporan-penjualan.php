@@ -124,23 +124,35 @@ if (isset($_POST['export'])) {
     $dataExport[] = [
         0 => 'No',
         1 => 'Id Barang',
-        2 => 'Kategori',
-        3 => 'Nama Barang',
-        4 => 'Jumlah',
-        5 => 'Total',
-        6 => 'Tanggal Input'
+        2 => 'Tanggal Input',
+        3 => 'Kategori',
+        4 => 'Nama Barang',
+        5 => 'Jumlah',
+        6 => 'Total'
     ];
+    $total = 0;
     foreach ($produk as $key => $val) {
         $dataExport[] = [
             0 => $key+1,
             1 => idBarangCustom($val['id_produk']),
-            2 => $val['nama_kategori'],
-            3 => $val['nama_produk'],
-            4 => $val['qty_keluar'],
-            5 => rupiah($val['harga_keluar']),
-            6 => date('j F Y, H:i', strtotime($val['tgl_keluar']))
+            2 => date('j F Y, H:i', strtotime($val['tgl_keluar'])),
+            3 => $val['nama_kategori'],
+            4 => $val['nama_produk'],
+            5 => $val['qty_keluar'],
+            6 => rupiah($val['harga_keluar'])
         ];
+        $total += $val['harga_keluar'];
     }
+
+    $dataExport[] = [
+        0 => '',
+        1 => '',
+        2 => '',
+        3 => '',
+        4 => '',
+        5 => 'Total',
+        6 => rupiah($total)
+    ];
 
     $_SESSION ['dataExport'] = $dataExport;
 

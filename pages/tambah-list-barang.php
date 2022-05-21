@@ -1,7 +1,12 @@
 <?php
 
+isAdmin();
+
 // get data kategori
 $kategori = @mysqli_query($conn, "SELECT * FROM kategori_produk");
+
+// get data satuan barang
+$satuanBarang = @mysqli_query($conn, "SELECT * FROM satuan_barang");
 
 // get id produk terbaru
 $lastId = @mysqli_fetch_assoc(@mysqli_query($conn, "SELECT id_produk FROM produk ORDER BY id_produk DESC LIMIT 1 "))['id_produk']+1;
@@ -79,8 +84,9 @@ if (isset($_POST['submit'])) {
                     <div class="col-sm-10">
                         <select name="satuan" class="form-select" id="satuan" required>
                             <option value="">PILIH SATUAN PRODUK</option>
-                            <option value="pcs">PCS</option>
-                            <option value="grosir">GROSIR</option>
+                            <?php foreach ($satuanBarang as $val): ?>
+                            <option value="<?=$val['satuan'] ?>"><?=strtoupper($val['satuan']) ?></option>
+                            <?php endforeach; ?>
                         </select>
                     </div>
                 </div>

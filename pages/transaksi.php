@@ -1,9 +1,11 @@
 <?php
 
+isAdmin();
+
 $produkInKasir = [];
 
 
-if ($_SESSION['produkInKasir']) {
+if (isset($_SESSION['produkInKasir'])) {
 
     $where = '';
     foreach (array_unique($_SESSION['produkInKasir']) as $key) {
@@ -139,7 +141,7 @@ if (isset($_POST['submit'])) {
                         <td>Bayar  </td>
                         <td>
                             <div>
-                                <input type="number" class="form-control bayar" name="bayar" id="bayar" value="" required>
+                                <input type="text" class="form-control bayar" name="bayar" id="bayar" value="" required>
                                 <div class="text-danger error-bayar">
                                 </div>
                             </div>
