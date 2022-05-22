@@ -123,7 +123,7 @@ if (isset($_POST['submit'])) {
                             <td><?=$key+1 ?></td>
                             <td><?=$val['nama_produk'] ?></td>
                             <td><?=rupiah($val['harga_jual']) ?></td>
-                            <td><input class="form-control jumlah" type="number" value="1" data-id="<?=$val['id_produk'] ?>" data-max="<?=$val['qty_stok'] ?>" data-harga="<?=$val['harga_jual'] ?>" name="qty_barang[]" required=""></td>
+                            <td><input class="form-control jumlah" type="text" value="1" data-id="<?=$val['id_produk'] ?>" data-max="<?=$val['qty_stok'] ?>" data-harga="<?=$val['harga_jual'] ?>" name="qty_barang[]" required=""></td>
                             <td><input class="form-control subtotal<?=$val['id_produk'] ?> subtotal" value="<?=rupiah($val['harga_jual']) ?>" type="text" data-subtotal="<?=$val['harga_jual'] ?>" readonly="" name="subtotal[]"></td>
                             <td>
                                 <a href="function.php?function=deletefromkasir&idproduk=<?=$val ['id_produk'] ?>" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>

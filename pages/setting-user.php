@@ -1,6 +1,6 @@
 <?php
 
-$user = @mysqli_fetch_assoc(@mysqli_query($conn, "SELECT * FROM karyawan"));
+$user = @mysqli_fetch_assoc(@mysqli_query($conn, "SELECT * FROM user"));
 
 if (isset($_POST['submit'])) {
     $nama = $_POST['nama'];
@@ -11,7 +11,7 @@ if (isset($_POST['submit'])) {
         $updatePassword = ",password='$newPassword'";
 
 
-    $sql = @mysqli_query($conn, "UPDATE karyawan SET nama='$nama',username='$username'$updatePassword");
+    $sql = @mysqli_query($conn, "UPDATE user SET nama='$nama',username='$username'$updatePassword");
 
     if ($sql) {
         $_SESSION['login'] = $username;
