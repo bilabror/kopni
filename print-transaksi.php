@@ -114,10 +114,10 @@ $kembalian = $produk1['kembalian'];
         <div class="flex-transaction">
             <?php foreach ($produk as $val): ?>
             <div class="left">
-                <?=$val['nama_produk'] ?><br> x <?= $val['qty_keluar'] ?>
+                <?=$val['nama_produk'] ?><br> x<?= $val['qty_keluar']."\t" ?><?=rupiah($val['harga_jual']) ?>
             </div>
             <div class="right">
-                <?= rupiah($val['harga_jual']) ?><br><?= rupiah($val['harga_keluar']) ?>
+                <br><?= rupiah($val['harga_keluar']) ?>
             </div>
             <?php endforeach; ?>
         </div>
