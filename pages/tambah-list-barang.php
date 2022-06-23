@@ -32,6 +32,9 @@ if (isset($_POST['submit'])) {
     if ($insertProduk) {
         echo "<script>window.alert('Data Berhasil Ditambahkan')</script>";
         echo "<script>window.location.href='".baseUrl("?page=list-barang")."'</script>";
+    } else {
+        echo "<script>window.alert('Data Gagal Ditambahkan')</script>";
+        echo "<script>window.location.href='".baseUrl("?page=list-barang")."'</script>";
     }
 }
 // END proses tambah data

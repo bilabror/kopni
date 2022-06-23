@@ -222,9 +222,11 @@ if (!isset($_SESSION['login'])) {
             if (bayar < MinimalBayar) {
                 $('.kembalian').val(`-${rupiah(kembalian)}`)
                 $('.error-bayar').html(`minimal pembayaran adalah ${rupiah(MinimalBayar)}`)
+                $('[name=submit]').prop('disabled', true);
             } else {
                 $('.kembalian').val(rupiah(kembalian))
                 $('.error-bayar').html(``)
+                $('[name=submit]').prop('disabled', false);
 
             }
         }

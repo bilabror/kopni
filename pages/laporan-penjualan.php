@@ -5,11 +5,14 @@ $prefixPage = 'list-barang';
 $select = "produk.nama_produk,produk.id_produk,kategori_produk.nama_kategori,qty_keluar,harga_keluar,tgl_keluar";
 $where = '';
 
+$urlPrint = 'print-laporan.php';
+
 
 if (!empty($_GET['awal']) && !empty($_GET['akhir'])) {
     $awal = $_GET['awal'];
     $akhir = $_GET['akhir'];
     $where = "WHERE DATE(tgl_keluar) >= '$awal' AND DATE(tgl_keluar) <= '$akhir'";
+    $urlPrint = "print-laporan.php/?awal={$awal}&akhir={$akhir}";
 }
 
 $produk = @mysqli_query($conn, "SELECT $select FROM transaksi_keluar
@@ -57,10 +60,11 @@ if (!empty($_GET['delete'])) {
         </div>
         <div class="card-body">
             <div class="d-flex flex-row-reverse">
-                <form action="" method="post">
+                <form action="" method="post" class="d-block mx-2">
                     <input type="hidden" name="page" value="laporan-penjualan">
                     <button class="btn btn-success" name="export"><i class="fa fa-file-excel"></i> EXPORT</button>
                 </form>
+                <a href="<?=$urlPrint ?>" class="d-block btn btn-danger"><i class="fa fa-print"></i> Print</a>
             </div>
 
             <div class="row">
