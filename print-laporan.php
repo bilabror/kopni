@@ -46,6 +46,7 @@ $produk = @mysqli_query($conn, "SELECT $select FROM transaksi_keluar
         }
         table {
             border-collapse: collapse;
+            width: 100%;
         }
         table th, table td {
             padding: 5px;
@@ -74,20 +75,19 @@ $produk = @mysqli_query($conn, "SELECT $select FROM transaksi_keluar
             </tr>
             <?php foreach ($produk as $val): ?>
             <tr>
-                <td><?=$val['tgl_keluar'] ?></td>
-                <td><?=$val['nama_produk'] ?></td>
-                <td><?=$val['qty_keluar'] ?></td>
-                <td><?=rupiah($val['harga_keluar']) ?></td>
+                <td style="text-align:center"><?=$val['tgl_keluar'] ?></td>
+                <td style="text-align:center"><?=$val['nama_produk'] ?></td>
+                <td style="text-align:center"><?=$val['qty_keluar'] ?></td>
+                <td style="text-align:center"><?=rupiah($val['harga_keluar']) ?></td>
             </tr>
             <?php endforeach; ?>
         </table>
-
-        <script>
-            function display() {
-                window.print();
-                window.onafterprint = window.close;
-            }
-        </script>
     </div>
+    <script>
+        function display() {
+            window.print();
+            window.onafterprint = window.close;
+        }
+    </script>
 </body>
 </html>
