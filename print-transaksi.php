@@ -154,6 +154,7 @@ $kembalian = $produk1['kembalian'];
                 container.style.width = "100%";
                 element.remove();
                 window.print();
+                window.onafterprint = window.close;
             }
         </script>
     </div>

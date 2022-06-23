@@ -38,7 +38,7 @@ $produk = @mysqli_query($conn, "SELECT $select FROM transaksi_keluar
             color: #444;
         }
         .container {
-            width: 35%;
+            width: 100%;
             margin: 40px auto;
         }
         .text-header {
@@ -49,16 +49,6 @@ $produk = @mysqli_query($conn, "SELECT $select FROM transaksi_keluar
         }
         table th, table td {
             padding: 5px;
-        }
-@media screen and (min-width: 480px) {
-            .container {
-                width: 80%;
-            }
-        }
-@media screen and (min-width: 768px) {
-            .container {
-                width: 35%;
-            }
         }
     </style>
 </head>
