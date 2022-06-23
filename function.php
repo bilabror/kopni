@@ -20,7 +20,7 @@ if ($_GET['function'] == 'caribarang') {
                     <td><?php echo $hasil['harga_jual']; ?></td>
                     <td>
                         <a href="function.php?function=addtokasir&idproduk=<?=$hasil['id_produk'] ?>">
-                            <button class="btn btn-success">Taruh</button></a></td>
+                            <button class="btn btn-success">Beli</button></a></td>
                 </tr>
                 <?php
             } ?>
