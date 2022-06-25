@@ -38,11 +38,12 @@ $produk = @mysqli_query($conn, "SELECT $select FROM transaksi_keluar
             color: #444;
         }
         .container {
-            width: 100%;
+            width: 90%;
             margin: 40px auto;
         }
         .text-header {
             font-size: 1.5rem;
+            font-weight: bold;
         }
         table {
             border-collapse: collapse;
@@ -50,6 +51,12 @@ $produk = @mysqli_query($conn, "SELECT $select FROM transaksi_keluar
         }
         table th, table td {
             padding: 5px;
+        }
+        .print {
+            border: none;
+            background: red;
+            color: white;
+            padding: 10px;
         }
     </style>
 </head>
@@ -68,23 +75,30 @@ $produk = @mysqli_query($conn, "SELECT $select FROM transaksi_keluar
 
         <table>
             <tr>
-                <th>Tanggal Input</th>
-                <th>Nama Barang</th>
-                <th>Jumlah Barang</th>
-                <th>Total</th>
+                <th style="text-align:left">Tanggal Input</th>
+                <th style="text-align:left">Nama Barang</th>
+                <th style="text-align:left">Jumlah Barang</th>
+                <th style="text-align:left">Total</th>
             </tr>
             <?php foreach ($produk as $val): ?>
             <tr>
-                <td style="text-align:center"><?=$val['tgl_keluar'] ?></td>
-                <td style="text-align:center"><?=$val['nama_produk'] ?></td>
-                <td style="text-align:center"><?=$val['qty_keluar'] ?></td>
-                <td style="text-align:center"><?=rupiah($val['harga_keluar']) ?></td>
+                <td><?=$val['tgl_keluar'] ?></td>
+                <td><?=$val['nama_produk'] ?></td>
+                <td><?=$val['qty_keluar'] ?></td>
+                <td><?=rupiah($val['harga_keluar']) ?></td>
             </tr>
             <?php endforeach; ?>
         </table>
+        <div style="text-align: right;">
+            <button class="print" id="print" onclick="display()">PRINT</button>
+        </div>
     </div>
     <script>
         function display() {
+            const container = document.getElementById("container");
+            const element = document.getElementById('print');
+            container.style.width = "100%";
+            element.remove();
             window.print();
             window.onafterprint = window.close;
         }

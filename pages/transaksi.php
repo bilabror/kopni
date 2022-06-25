@@ -102,10 +102,12 @@ if (isset($_POST['submit'])) {
                 </tr>
             </table>
             <form action="" method="post">
+                <?php if ($produkInKasir > 0): ?>
                 <?php foreach ($produkInKasir as $value): ?>
                 <input type="hidden" name="idproduk[]" value="<?=$value['id_produk']; ?>">
                 <input type="hidden" name="idstok[]" value="<?=$value['id_stok']; ?>">
                 <?php endforeach; ?>
+                <?php endif; ?>
                 <table id="datatablesSimple">
                     <thead>
                         <tr>
@@ -118,6 +120,7 @@ if (isset($_POST['submit'])) {
                         </tr>
                     </thead>
                     <tbody>
+                        <?php if ($produkInKasir > 0): ?>
                         <?php foreach ($produkInKasir as $key => $val): ?>
                         <tr>
                             <td><?=$key+1 ?></td>
@@ -130,6 +133,7 @@ if (isset($_POST['submit'])) {
                             </td>
                         </tr>
                         <?php endforeach; ?>
+                        <?php endif; ?>
                     </tbody>
                 </table>
 
