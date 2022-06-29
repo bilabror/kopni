@@ -5,14 +5,14 @@ $prefixPage = 'list-barang';
 $select = "produk.nama_produk,produk.id_produk,kategori_produk.nama_kategori,qty_keluar,harga_keluar,tgl_keluar";
 $where = '';
 
-$urlPrint = 'print-laporan.php';
+$urlPrint = 'print-laporan2.php';
 
 
 if (!empty($_GET['awal']) && !empty($_GET['akhir'])) {
     $awal = $_GET['awal'];
     $akhir = $_GET['akhir'];
     $where = "WHERE DATE(tgl_keluar) >= '$awal' AND DATE(tgl_keluar) <= '$akhir'";
-    $urlPrint = "print-laporan.php/?awal={$awal}&akhir={$akhir}";
+    $urlPrint = "print-laporan2.php/?awal={$awal}&akhir={$akhir}";
 }
 
 $produk = @mysqli_query($conn, "SELECT $select FROM transaksi_keluar
