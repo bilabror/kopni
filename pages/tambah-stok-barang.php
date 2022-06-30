@@ -25,18 +25,8 @@ if (isset($_POST['submit'])) {
     $tglInput = $_POST['tgl_input']. " " . date("H:i:s");
     $idStok = $_POST['id_stok'];
 
-    /*
-    $cekRiwayat = @mysqli_query($conn, "SELECT * FROM riwayat_tambah_stok WHERE id_produk=$idProduk AND tgl_input='$tglInput'");
-    if (mysqli_num_rows($cekRiwayat) > 0) {
-        $updateStok = @mysqli_query($conn, "UPDATE riwayat_tambah_stok SET stok_tambahan = (stok_tambahan+$stokTambahan) WHERE id_produk = $idProduk && tgl_input='$tglInput'");
-    } else {
-        // insert ke tabel stok_awal
-        $insertHistory = @mysqli_query($conn, "INSERT INTO riwayat_tambah_stok VALUE('', $idProduk, $stokAwal, $stokTambahan, $totalStok, '$tglInput')");
-    }
-*/
 
-
-    $insertHistory = @mysqli_query($conn, "INSERT INTO riwayat_tambah_stok VALUE('', $idProduk, $stokAwal, $stokTambahan, $totalStok, '$tglInput')");
+    $insertHistory = @mysqli_query($conn, "INSERT INTO riwayat_tambah_stok VALUE('', $idProduk, $stokTambahan, '$tglInput')");
     $updateStok = @mysqli_query($conn, "UPDATE stok_awal SET qty_stok=(qty_stok+$stokTambahan) WHERE id_stok=$idStok");
 
 

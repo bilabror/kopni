@@ -64,9 +64,7 @@ echo mysqli_error($conn);
                             <th width="5%">No</th>
                             <th>Id Barang</th>
                             <th>Nama Barang</th>
-                            <!--<th>Stok awal</th>-->
                             <th>Stok masuk</th>
-                            <!--<th>Total stok</th>-->
                             <th>Tgl input</th>
                         </tr>
                     </thead>
@@ -78,9 +76,7 @@ echo mysqli_error($conn);
                             <td><?=$key+1 ?></td>
                             <td><?=idBarangCustom($value['id_produk']) ?></td>
                             <td><?=$value['nama_produk'] ?></td>
-                            <!-- <td><?=$value['stok_awal'] ?></td>-->
                             <td><?=$value['stok_tambahan'] ?></td>
-                            <!-- <td><?=$value['total_stok'] ?></td>-->
                             <td><?=date("d M Y", strtotime($value['tgl_input_stok'])) ?></td>
                         </tr>
                         <?php endforeach; ?>
