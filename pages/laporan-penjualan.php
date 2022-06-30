@@ -12,7 +12,7 @@ if (!empty($_GET['awal']) && !empty($_GET['akhir'])) {
     $awal = $_GET['awal'];
     $akhir = $_GET['akhir'];
     $where = "WHERE DATE(tgl_keluar) >= '$awal' AND DATE(tgl_keluar) <= '$akhir'";
-    $urlPrint = "print-laporan2.php/?awal={$awal}&akhir={$akhir}";
+    $urlPrint = "print-laporan.php/?awal={$awal}&akhir={$akhir}";
 }
 
 $produk = @mysqli_query($conn, "SELECT $select FROM transaksi_keluar
