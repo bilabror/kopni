@@ -96,13 +96,13 @@ if (isset($_POST['submit'])) {
                 <div class="mb-3 row">
                     <label for="stok" class="col-sm-2 col-form-label">Stok</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="stok" name="stok" required>
+                        <input type="number" class="form-control" id="stok" name="stok" required value="0">
                     </div>
                 </div>
                 <div class="mb-3 row">
                     <label for="tgl_input" class="col-sm-2 col-form-label">Tanggal Input</label>
                     <div class="col-sm-10">
-                        <input type="date" class="form-control" id="tgl_input" name="tgl_input" required>
+                        <input type="date" class="form-control" id="tgl_input" name="tgl_input" value="<?=date('Y-m-d') ?>" required>
                     </div>
                 </div>
                 <div class="mb-3 row">

@@ -5,7 +5,7 @@ $prefixPage = 'list-barang';
 $select = "produk.nama_produk,produk.id_produk,kategori_produk.nama_kategori,qty_keluar,harga_keluar,tgl_keluar";
 $where = '';
 
-$urlPrint = 'print-laporan2.php';
+$urlPrint = 'print-laporan.php';
 
 
 if (!empty($_GET['awal']) && !empty($_GET['akhir'])) {

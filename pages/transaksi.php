@@ -102,7 +102,7 @@ if (isset($_POST['submit'])) {
                 </tr>
             </table>
             <form action="" method="post">
-                <?php if (mysqli_num_rows($produkInKasir) > 0): ?>
+                <?php if ($produkInKasir): ?>
                 <?php foreach ($produkInKasir as $value): ?>
                 <input type="hidden" name="idproduk[]" value="<?=$value['id_produk']; ?>">
                 <input type="hidden" name="idstok[]" value="<?=$value['id_stok']; ?>">
@@ -120,7 +120,7 @@ if (isset($_POST['submit'])) {
                         </tr>
                     </thead>
                     <tbody>
-                        <?php if (mysqli_num_rows($produkInKasir) > 0): ?>
+                        <?php if ($produkInKasir): ?>
                         <?php foreach ($produkInKasir as $key => $val): ?>
                         <tr>
                             <td><?=$key+1 ?></td>

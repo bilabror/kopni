@@ -58,6 +58,7 @@ if (!isset($_SESSION['login'])) {
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link" href="<?=baseUrl('?page=kategori-barang') ?>">Kategori Barang</a>
                                 <a class="nav-link" href="<?=baseUrl('?page=list-barang') ?>">List Barang</a>
+                                <a class="nav-link" href="<?=baseUrl('?page=stok-barang') ?>">Stok Barang</a>
                                 <a class="nav-link" href="<?=baseUrl('?page=satuan-barang') ?>">Satuan Barang</a>
                             </nav>
                         </div>
@@ -236,6 +237,25 @@ if (!isset($_SESSION['login'])) {
             let format = numb.toString().split('').reverse().join('');
             let convert = format.match(/\d{1,3}/g);
             return 'Rp.' + convert.join('.').split('').reverse().join('')
+        }
+
+
+        function getStok() {
+            let idProduk = $('#idproduk').val()
+            $.ajax({
+                type: "POST",
+                url: "function.php?function=getstok",
+                data: `idproduk=${idProduk}`,
+                beforeSend: function() {
+                    //
+                },
+                success: function(data) {
+                    let dataStok = JSON.parse(data)
+                    $("[name=stok_awal]").val(dataStok.qty_stok)
+                    $("[name=id_stok]").val(dataStok.id_stok)
+                    $("[name=id_produk]").val(idProduk)
+                }
+            });
         }
 
     </script>

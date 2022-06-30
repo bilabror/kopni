@@ -34,6 +34,14 @@ if ($_GET['function'] == 'addtokasir') {
     header('Location: index.php?page=transaksi');
 }
 
+if ($_GET['function'] == 'getstok') {
+    $idproduk = $_POST['idproduk'];
+    $idStok = mysqli_fetch_assoc(mysqli_query($conn, "SELECT id_stok FROM produk WHERE id_produk=$idproduk"))['id_stok'];
+    $stok = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM stok_awal WHERE id_stok=$idStok"));
+    echo json_encode($stok);
+
+}
+
 if ($_GET['function'] == 'deletefromkasir') {
     if (($key = array_search($_GET['idproduk'], $_SESSION['produkInKasir'])) !== false) {
         unset($_SESSION['produkInKasir'][$key]);
