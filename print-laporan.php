@@ -125,7 +125,7 @@ $produk = @mysqli_query($conn, "SELECT $select FROM transaksi_keluar
                     .
                 </p>
                 <p class="ex1">
-                    Penanggung jawab Koperasi
+                    Memeriksa
                 </p>
                 <div class="d-inline-block" style="width:200px;border-bottom:1px solid black;"></div>
             </br>
@@ -136,11 +136,11 @@ $produk = @mysqli_query($conn, "SELECT $select FROM transaksi_keluar
             Salatiga, <?= tgl_indo(date('Y-m-d')) ?>
         </p>
         <p class="ex1">
-            Mengetahui
+            Membuat
         </p>
         <div class="d-inline-block" style="width:200px;border-bottom:1px solid black;"></div>
     </br>
-    <b>Ketua Koni Kota Salatiga</b></br>
+    <b>Admin Koperasi</b></br>
 </div>
 </div>
 

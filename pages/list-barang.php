@@ -52,7 +52,7 @@ if (!empty($_GET['delete'])) {
                         <th>Harga</th>
                         <th>Satuan</th>
                         <th width="8%">Stok</th>
-                        <th>Aksi</th>
+                        <!--<th>Aksi</th>-->
                     </tr>
                 </thead>
                 <tbody>
@@ -70,12 +70,12 @@ if (!empty($_GET['delete'])) {
                         <td><?=$val['harga_jual'] ?></td>
                         <td><?=$val['satuan'] ?></td>
                         <td class="<?=$bg ?>"><?=$val['qty_stok'] ?></td>
-                        <td>
-                            <!--
-                                                        <a href="<?=baseUrl("?page=edit-{$prefixPage}&edit={$val['id_produk']}") ?>" class="btn btn-sm btn-warning"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
-                                                        -->
-                            <a href="<?=baseUrl("?page={$prefixPage}&delete={$val['id_produk']}") ?>" onclick="javascript:return confirm('Apakah anda yakin akan menghapusnya?');" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> Delete</a>
-                        </td>
+
+                        <!--<td>
+                                                                                <a href="<?=baseUrl("?page=edit-{$prefixPage}&edit={$val['id_produk']}") ?>" class="btn btn-sm btn-warning"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
+                                                    <a href="<?=baseUrl("?page={$prefixPage}&delete={$val['id_produk']}") ?>" onclick="javascript:return confirm('Apakah anda yakin akan menghapusnya?');" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> Delete</a>
+                                                </td>-->
+
                     </tr>
                     <?php endforeach; ?>
                 </tbody>
